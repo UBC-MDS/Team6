@@ -13,7 +13,7 @@ def visualize_correlation(file_path, output_file):
     Visualize the correlation matrix of numerical features.
 
     Parameters:
-    - file_path (str): Path to the CSV file containing numerical features.
+    - file_path (str): Path to the CSV file of preprocessed data.
     - output_file (str): Path to save the correlation heatmap image.
 
     Returns:
@@ -23,19 +23,28 @@ def visualize_correlation(file_path, output_file):
     calculates the correlation matrix, and generates a heatmap. The resulting heatmap
     is saved as an image file specified by 'output_file'.
     """
-
-    # Read in data file
+    
+    # Read in preporcessed data file
     df = pd.read_csv(file_path)
+    
+    # Select only numerical features
+    numerical_df = df.select_dtypes(['int', 'float'])
+    
+    # Create a correlation matrix
+    correlation_matrix = numerical_df.corr()
 
     # Set up the matplotlib figure
     plt.figure(figsize=(20, 10))
     
     # Generate a heatmap using seaborn
-    heatmap = sns.heatmap(df.select_dtypes(['int', 'float']).corr(), vmin=-1, vmax=1, annot=True, cmap='PuOr')
+    heatmap = sns.heatmap(correlation_matrix, vmin=-1, vmax=1, annot=True, cmap='PuOr')
+    
+    # Set title for the heatmap
     heatmap.set_title('Features Correlating', fontdict={'fontsize': 10}, pad=12)
 
-    # Save the heatmap as an PNG image file
+    # Save the heatmap as an image file
     plt.savefig(output_file)
     
 if __name__ == "__main__":
     visualize_correlation()
+

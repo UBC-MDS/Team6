@@ -3,8 +3,10 @@ import click
 
 
 @click.command()
-@click.option('--file_path', type=str, help="Path to directory where the input data locates")
-@click.option('--output_file', type=str, help="Path to directory where the plot will be written to")
+
+@click.option('--file_path', type=str, help="Path to the CSV file containing the input data.")
+@click.option('--output_file', type=str, help="Path to the CSV file where the missing percentage will be written.")
+
 
 def calculate_missing_percentage(file_path, output_file):
     """
@@ -24,6 +26,7 @@ def calculate_missing_percentage(file_path, output_file):
     # Read in data file
     df = pd.read_csv(file_path)
     
+
     # Find the percentage of the NaN in each column of the dataset
     result = df.isna().mean()
     
