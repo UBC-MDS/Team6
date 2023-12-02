@@ -3,22 +3,24 @@ import seaborn as sns
 import pandas as pd
 import click
 
-
 @click.command()
 @click.option('--file_path')
 @click.option('--output_file')
 
 def visualize_correlation(file_path, output_file):
+
     """
     Visualize the correlation matrix of numerical features.
 
     Parameters:
     - file_path: str, Path to the input CSV file.
     - output_file: str, Path to save the correlation heatmap image.
+    - df: DataFrame to visualize
 
     Returns:
     - heatmap
     """
+    
     df = pd.read_csv(file_path)
     plt.figure(figsize=(12, 7))
     
@@ -29,3 +31,4 @@ def visualize_correlation(file_path, output_file):
     
 if __name__ == "__main__":
     visualize_correlation()
+

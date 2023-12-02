@@ -35,7 +35,24 @@ While LR exhibited promising results, further refinement and exploration of addi
 
 ## Usage
 
-First time running the project, run the following from the root of this repository:
+To run the project via docker, run the following from the root of this repository:
+
+```bash
+docker compose up
+```
+Open your browser and type the following into the address bar:
+
+```bash
+localhost:8890
+```
+
+At the end of your session, hit **cntrl+C** at the command line and then run the following:
+
+```bash
+docker compose rm 
+```
+
+If you don't want to use docker, then the first time running the project, run the following from the root of this repository:
 
 ``` bash
 conda env create --file 522env.yaml
@@ -48,7 +65,22 @@ conda activate GoT-fatality-prediction
 jupyter lab 
 ```
 
-Open `analysis.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells".
+
+Open `got_fatality_predictor.ipynb` in Jupyter Lab and under the "Kernel" menu click "Restart Kernel and Run All Cells".
+
+
+
+To run the tests, run the following from the root of this repository:
+
+``` bash
+pytest test/
+```
+
+
+To visualize the notebook in a browser, go to the following link:
+
+<https://ianm99.github.io/Team-6-publishing/index.html>
+
 
 ## Reference
 

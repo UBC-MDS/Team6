@@ -3,7 +3,6 @@
 __pycache__/
 
 # Data files (example file formats)
-*.csv
 *.xls
 *.xlsx
 *.json
@@ -11,7 +10,6 @@ __pycache__/
 *.db
 
 # Model files
-*.pkl
 *.h5
 
 # Environment and dependencies
