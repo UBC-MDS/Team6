@@ -13,7 +13,7 @@ def visualize_correlation(file_path, output_file):
     Visualize the correlation matrix of numerical features.
 
     Parameters:
-    - file_path (str): Path to the CSV file containing numerical features.
+    - file_path (str): Path to the CSV file of preprocessed data.
     - output_file (str): Path to save the correlation heatmap image.
 
     Returns:
@@ -23,7 +23,8 @@ def visualize_correlation(file_path, output_file):
     calculates the correlation matrix, and generates a heatmap. The resulting heatmap
     is saved as an image file specified by 'output_file'.
     """
-    # Read in data file
+    
+    # Read in preporcessed data file
     df = pd.read_csv(file_path)
     
     # Select only numerical features
@@ -43,7 +44,7 @@ def visualize_correlation(file_path, output_file):
 
     # Save the heatmap as an image file
     plt.savefig(output_file)
-
+    
 if __name__ == "__main__":
     visualize_correlation()
 
